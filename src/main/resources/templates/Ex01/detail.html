@@ -17,7 +17,10 @@
 <span th:text="${team.inauguration}"></span>
 
 <h1>歴史</h1>
-<span th:text="${team.history}"></span><br><br>
+<span th:each="history : ${historyArray}">
+	<span th:text="${history}"></span><br>
+</span>
+<br>
 
 <button>戻る</button>
 </form>

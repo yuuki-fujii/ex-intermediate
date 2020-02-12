@@ -28,6 +28,7 @@ public class BaseballTeamController {
 	@Autowired
 	private BaseballTeamService baseballTeamService;
 	
+	
 	/**
 	 * 野球チーム一覧ページに遷移.
 	 * 
@@ -51,7 +52,10 @@ public class BaseballTeamController {
 	@RequestMapping("/detail")
 	public String detail(Integer id, Model model) {
 		BaseballTeam team = baseballTeamService.showDetail(id);
+		String [] historyArray = team.getHistory().split("\n");
+		
 		model.addAttribute("team", team);
+		model.addAttribute("historyArray", historyArray);
 		return "/Ex01/detail";
 	}
 	
