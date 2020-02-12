@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>中級課題 演習3</title>
+</head>
+<body>
+<h1>衣類検索</h1>
+<form th:action="@{/cloth/result}" method="post" >
+<input type="radio" name="gender" value="0" checked>Man<br>
+<input type="radio" name="gender" value="1">Woman &nbsp;
+
+<select name="color">
+	<option value="赤">赤</option>
+	<option value="青">青</option>
+	<option value="白">白</option>
+	<option value="黄">黄</option>
+</select><br>
+
+<button>検索</button>
+</form>
+
+<div th:each="cloth :${clothList}">
+	<table border="1">
+		<tr>
+			<td>ジャンル</td>
+			<td th:text="${cloth.genre}"></td>
+		</tr>
+		<tr>
+			<td>サイズ</td>
+			<td th:text="${cloth.size}"></td>
+		</tr>
+		<tr>
+			<td>価格</td>
+			<td th:text="${cloth.price}"></td>
+		</tr>
+	</table>
+</div>
+</body>
+</html>

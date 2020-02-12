@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>中級課題 演習1</title>
+</head>
+<body>
+
+<form th:action="@{/baseball-team}">
+<h1>球団名</h1>
+<span th:text="${team.teamName}"></span>
+
+<h1>本拠地</h1>
+<span th:text="${team.headquarters}"></span>
+
+<h1>発足</h1>
+<span th:text="${team.inauguration}"></span>
+
+<h1>歴史</h1>
+<span th:text="${team.history}"></span><br><br>
+
+<button>戻る</button>
+</form>
+</body>
+</html>
