@@ -23,9 +23,6 @@ import com.example.service.BaseballTeamService;
 public class BaseballTeamController {
 	
 	@Autowired
-	private ServletContext application;
-	
-	@Autowired
 	private BaseballTeamService baseballTeamService;
 	
 	
@@ -36,14 +33,14 @@ public class BaseballTeamController {
 	 * @return　野球チーム一覧ページ
 	 */
 	@RequestMapping("")
-	public String index() {
+	public String index(Model model) {
 		List <BaseballTeam> teamList = baseballTeamService.showList();
-		application.setAttribute("teamList", teamList);
+		model.addAttribute("teamList", teamList);
 		return "/Ex01/index";
 	}
 	
 	/**
-	 * 球団詳細情報ページに遷移
+	 * 球団詳細情報ページに遷移.
 	 * 
 	 * @param id　主キー
 	 * @param model リクエストスコープ
@@ -52,10 +49,8 @@ public class BaseballTeamController {
 	@RequestMapping("/detail")
 	public String detail(Integer id, Model model) {
 		BaseballTeam team = baseballTeamService.showDetail(id);
-		String [] historyArray = team.getHistory().split("\n");
 		
 		model.addAttribute("team", team);
-		model.addAttribute("historyArray", historyArray);
 		return "/Ex01/detail";
 	}
 	

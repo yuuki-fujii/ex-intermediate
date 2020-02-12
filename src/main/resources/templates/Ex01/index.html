@@ -6,7 +6,7 @@
 </head>
 <body>
 <h1>野球チーム一覧</h1>
-<div th:each="team :${application.teamList}">
+<div th:each="team :${teamList}">
 	<a th:href="@{'/baseball-team/detail?id=' +${team.id}}">
 		<span th:text="${team.teamName}">球団名</span><br><br>
 	</a>
